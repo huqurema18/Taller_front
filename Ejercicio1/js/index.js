@@ -8,7 +8,7 @@ var autoWriteTimer;
 
 var isMobile, isIE;
 
-window.onload = function() {
+window.onload = function () {
 
     isMobile = navigator && navigator.platform && navigator.platform.match(/^(iPad|iPod|iPhone)$/);
 
@@ -77,12 +77,12 @@ window.onload = function() {
 
     if (document.addEventListener) {
 
-        document.addEventListener('touchstart', function(e) {
+        document.addEventListener('touchstart', function (e) {
             clearInterval(autoWriteTimer);
             targetContent = lastContent;
         }, false);
 
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             clearInterval(autoWriteTimer);
             targetContent = lastContent;
             hiddenInput.focus();
@@ -92,14 +92,14 @@ window.onload = function() {
             // Input event is buggy on IE, so don't bother
             // (https://msdn.microsoft.com/en-us/library/gg592978(v=vs.85).aspx#feedback)
             // We will use a timer instead (below)
-            hiddenInput.addEventListener('input', function(e) {
+            hiddenInput.addEventListener('input', function (e) {
                 e.preventDefault();
                 targetContent = hiddenInput.value;
                 if (!inputLock) refresh();
 
             }, false);
         } else {
-            setInterval(function() {
+            setInterval(function () {
                 targetContent = hiddenInput.value;
 
                 if (targetContent != lastContent && !inputLock) refresh();
@@ -110,7 +110,7 @@ window.onload = function() {
 
     hiddenInput.value = "";
 
-    autoWriteTimer = setTimeout(function() {
+    autoWriteTimer = setTimeout(function () {
         if (lastContent != "") return;
         targetContent = "Taller de Multimedia";
         refresh();
@@ -120,7 +120,7 @@ window.onload = function() {
 
 
 function func1() {
-    let text=document.getElementById("input1").value;
-    let result=text.length; 
+    let text = document.getElementById("input1").value;
+    let result = text.length;
     alert(result);
-  }
+}
