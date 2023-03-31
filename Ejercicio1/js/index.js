@@ -1,126 +1,91 @@
-var input;
-var cursor;
-var hiddenInput;
-var content = [];
-var lastContent = "", targetContent = "";
-var inputLock = false;
-var autoWriteTimer;
 
-var isMobile, isIE;
-
-window.onload = function() {
-
-    isMobile = navigator && navigator.platform && navigator.platform.match(/^(iPad|iPod|iPhone)$/);
-
-    isIE = (navigator.appName == 'Microsoft Internet Explorer');
-
-    input = document.getElementById('input');
-
-    hiddenInput = document.getElementById('hiddenInput');
-    hiddenInput.focus();
-
-    cursor = document.createElement('cursor');
-    cursor.setAttribute('class', 'blink');
-    cursor.innerHTML = "|";
-
-    if (!isMobile && !isIE) input.appendChild(cursor);
-
-    function refresh() {
-
-        inputLock = true;
-
-        if (targetContent.length - lastContent.length == 0) return;
-
-        var v = targetContent.substring(0, lastContent.length + 1);
-
-        content = [];
-
-        var blinkPadding = false;
-
-        for (var i = 0; i < v.length; i++) {
-            var l = v.charAt(i);
-
-            var d = document.createElement('div');
-            d.setAttribute('class', 'letterContainer');
-
-            var d2 = document.createElement('div');
-
-            var animClass = (i % 2 == 0) ? 'letterAnimTop' : 'letterAnimBottom';
-
-            var letterClass = (lastContent.charAt(i) == l) ? 'letterStatic' : animClass;
-
-            if (letterClass != 'letterStatic') blinkPadding = true;
-
-            d2.setAttribute('class', letterClass);
-
-            d.appendChild(d2);
-
-            d2.innerHTML = l;
-            content.push(d);
-        }
-
-        input.innerHTML = '';
-
-        for (var i = 0; i < content.length; i++) {
-            input.appendChild(content[i]);
-        }
-
-        cursor.style.paddingLeft = (blinkPadding) ? '22px' : '0';
-
-        if (!isMobile && !isIE) input.appendChild(cursor);
-
-        if (targetContent.length - lastContent.length > 1) setTimeout(refresh, 150);
-        else inputLock = false;
-
-        lastContent = v;
-    }
-
-    if (document.addEventListener) {
-
-        document.addEventListener('touchstart', function(e) {
-            clearInterval(autoWriteTimer);
-            targetContent = lastContent;
-        }, false);
-
-        document.addEventListener('click', function(e) {
-            clearInterval(autoWriteTimer);
-            targetContent = lastContent;
-            hiddenInput.focus();
-        }, false);
-
-        if (!isIE) {
-            // Input event is buggy on IE, so don't bother
-            // (https://msdn.microsoft.com/en-us/library/gg592978(v=vs.85).aspx#feedback)
-            // We will use a timer instead (below)
-            hiddenInput.addEventListener('input', function(e) {
-                e.preventDefault();
-                targetContent = hiddenInput.value;
-                if (!inputLock) refresh();
-
-            }, false);
-        } else {
-            setInterval(function() {
-                targetContent = hiddenInput.value;
-
-                if (targetContent != lastContent && !inputLock) refresh();
-            }, 100);
-        }
-
-    }
-
-    hiddenInput.value = "";
-
-    autoWriteTimer = setTimeout(function() {
-        if (lastContent != "") return;
-        targetContent = "Taller de Multimedia";
-        refresh();
-    }, 2000);
-}
 
 
 
 function func1() {
     let text=document.getElementById("input1").value;
     let result=text.length; 
-    alert(result);
+    const resp=document.getElementById("resp1");
+    resp.innerHTML=`${result} caracteres`;
+
+}
+
+  function func2() {
+    const input = document.getElementById("input2");
+	const tipoDato = document.getElementById("resp2");
+    if (isNaN(input.value)) {
+        tipoDato.innerHTML = `texto`;
+    } else {
+        tipoDato.innerHTML = `número`;
+    }
+}
+
+function func3() {
+    // Obtener el valor del nombre y la edad ingresados por el usuario
+  var nombre = document.getElementById("input3").value;
+  var edad = document.getElementById("input3b").value;
+
+  // Verificar si la edad es mayor o igual a 18
+  if (edad >= 18) {
+    // Si es mayor o igual a 18, mostrar un mensaje indicando que es mayor de edad
+    document.getElementById("resp3").innerHTML ="Hola "+ nombre + " eres mayor de edad";
+  } else {
+    // Si es menor a 18, mostrar un mensaje indicando que es menor de edad
+    document.getElementById("resp3").innerHTML ="Hola "+ nombre + " eres menor de edad";
   }
+
+}
+function func4() {
+    // Obtener los valores del nombre, materia y notas ingresados por el usuario
+  var nombre = document.getElementById("input4").value;
+  var materia = document.getElementById("Materia").value;
+  var nota1 = parseFloat(document.getElementById("nota1_4").value);
+  var nota2 = parseFloat(document.getElementById("nota2_4").value);
+  var nota3 = parseFloat(document.getElementById("nota3_4").value);
+
+  // Calcular el promedio de las 3 notas
+  var promedio = (nota1 + nota2 + nota3) / 3;
+
+  // Determinar si el usuario pasó o perdió la materia
+  if (promedio >= 3.0) {
+    // Si el promedio es igual o superior a 3.0, mostrar un mensaje indicando que pasó la materia
+    document.getElementById("resp4").innerHTML = "Felicitaciones " + nombre +", "+"<span class=\"notapasa\">su nota es " + promedio.toFixed(2) +"</span>"+ ",  Pasaste la materia " + materia + ".";
+
+  } else {
+    // Si el promedio es menor a 3.0, mostrar un mensaje indicando que perdió la materia
+    document.getElementById("resp4").innerHTML = "Lastimosamente " + nombre +", "+"<span class=\"notalose\">su nota es " + promedio.toFixed(2) +"</span>"+ ",  Perdiste la materia " + materia + ".";
+
+
+  }
+
+}
+function func5() {
+    // Obtener el número ingresado por el usuario
+    var numero = parseFloat(document.getElementById("input5").value);
+    console.log(numero);
+    if(isNaN(numero)){
+        document.getElementById("resp5").innerHTML = "Debe ingresar números enteros positivos.";
+        document.getElementById("resp5").style.color = "red";
+        
+    }else if(!Number.isInteger(numero)){
+        document.getElementById("resp5").innerHTML = "Debe ingresar números enteros.";
+        document.getElementById("resp5").style.color = "red";
+    }else if(numero <= 0){
+        document.getElementById("resp5").innerHTML = "Debe ingresar números positivos.";
+        document.getElementById("resp5").style.color = "red";
+        if(!Number.isInteger(numero)){
+            document.getElementById("resp5").innerHTML = "Debe ingresar números enteros positivos.";
+            document.getElementById("resp5").style.color = "red";
+        }
+    }else if (numero % 2 == 0) {
+            document.getElementById("resp5").innerHTML = "El número " + numero + " es Par.";
+            document.getElementById("resp5").style.color = "green";
+          } else {
+            document.getElementById("resp5").innerHTML = "El número " + numero + " es Impar.";
+            document.getElementById("resp5").style.color = "red";
+          }
+    
+  
+    
+  }
+  

@@ -14,21 +14,67 @@
         <div id="container">
             <div id="input"></div>
             
-            <label for="">Taller Multimedia</label>
-        </div> 
-        <button class="button-35" role="button" href="https://es.stackoverflow.com">Ejercicio 1</button>
+            <h1>Taller Multimedia</h1>
+        </div>         
     </section>
-    <section>
+    <nav class="botones">
+        <button class="button-35" role="button" id="btneje1">Ejercicio 1</button>
+        <button class="button-35" role="button" id="btneje2">Ejercicio 2</button>
+        <button class="button-35" role="button" id="btneje3">Ejercicio 3</button>
+        <button class="button-35" role="button" id="btneje4">Ejercicio 4</button>
+        <button class="button-35" role="button" id="btneje5">Ejercicio 5</button>
+        <button class="button-35" role="button" id="btneje6">Ejercicio 6</button>
+        <button class="button-35" role="button" id="btneje7">Ejercicio 7</button>
+        <button class="button-35" role="button" id="btneje8">Ejercicio 8</button>
+    </nav>
+    <section class="Ejercicio">
         <h1>Ejercicio 1</h1>
-    <form>
-      <label for="input1">Ejercicio1:</label>
-      <input type="text" id="input1" name="input1">
-      <button type="submit" onclick="func1()">Enviar</button>
-    </form>
+        <input type="text" id="input1" name="input1">
+        <button type="submit" onclick="func1()">Enviar</button>
+        <label for="" id="resp1"></label>
     </section>
+    <section class="Ejercicio">
+        <h1>Ejercicio 2</h1>
+        <label for="">Escribe el dato: </label>
+        <input type="text" id="input2" name="input2">
+        <button type="submit" onclick="func2()">Enviar</button>
+        <label for="" id="resp2"></label>
+    </section>
+    <section class="Ejercicio">
+        <h1>Ejercicio 3</h1>
+        <label for="">Escribe tu nombre y años: </label>
+        
+        <div class="fila">
+            <input type="text" id="input3" name="input3" placeholder="NOMBRE">
+            <input type="text" id="input3b" name="input3b" placeholder="EDAD">
+        </div>
+        <button type="submit" onclick="func3()">Enviar</button>
+        <label for="" id="resp3"></label>
+    </section>
+    <section class="Ejercicio">
+        <h1>Ejercicio 4</h1>
+        <label for="">Escribe tu nombre y las notas: </label>
+        <input type="text" id="input4" name="input4" placeholder="NOMBRE">
+        <div class="fila">
+            <input type="text" id="Materia" name="Materia" placeholder="Materia">
+            <input type="text" id="nota1_4" name="Nota14" placeholder="Nota1">
+            <input type="text" id="nota2_4" name="Nota14" placeholder="Nota2">
+            <input type="text" id="nota3_4" name="Nota14" placeholder="Nota3">
+        </div>
+        <button type="submit" onclick="func4()">Enviar</button>
+        <label for="" id="resp4"></label>
+    </section>
+    <section class="Ejercicio">
+        <h1>Ejercicio 5</h1>
+        <label for="">Escribe el número: </label>
+        <input type="text" id="input5" name="input5">
+        <button type="submit" onclick="func5()">Enviar</button>
+        <label for="" id="resp5"></label>
+    </section>
+    
 
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
-    <script src="js/index.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>

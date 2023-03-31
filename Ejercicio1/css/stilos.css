@@ -24,9 +24,41 @@ body {
   }
   button {
     font-size: 18px;
+    width: 15rem;
     padding: 5px 20px;
     border-radius: 5px;
     background-color: #FF5722;
     color: white;
     border: none;
+  }
+  .botones{
+    display: flex;
+  justify-content: space-between;
+  }
+  .Ejercicio{
+    margin: 3rem;
+    margin-bottom: 7rem;
+    display: flex;
+    
+  align-items: center;
+  flex-direction: column;
+  }
+  .Ejercicio h1{
+    margin-bottom: 3rem;
+  }
+  .fila{
+    display: flex;
+    flex-direction: row;
+    margin-right: 3rem;
+    margin-left:  3rem;
+  }
+  .fila input{
+    margin-right: 0.5rem;
+    margin-left:  0.5rem;
+  }
+  .notapasa{
+    color: green;
+  }
+  .notalose{
+    color: red;
   }
