@@ -1,36 +1,64 @@
 body {
-  background-color: black;
-  color: white;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
+    background-color: black;
+    color: white;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  label {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  input {
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 300px;
+    background-color: #333;
+    color: white;
+    border: none;
+  }
+  button {
+    font-size: 18px;
+    width: 15rem;
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color: #FF5722;
+    color: white;
+    border: none;
+  }
+  .botones{
+    display: flex;
+  justify-content: space-between;
+  }
+  .Ejercicio{
+    margin: 3rem;
+    margin-bottom: 7rem;
+    display: flex;
+    
   align-items: center;
-  margin-top: 50px;
-}
-
-label {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-input {
-  font-size: 18px;
-  padding: 5px;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  width: 300px;
-  background-color: #333;
-  color: white;
-  border: none;
-}
-
-button {
-  font-size: 18px;
-  padding: 5px 20px;
-  border-radius: 5px;
-  background-color: #FF5722;
-  color: white;
-  border: none;
-}
+  flex-direction: column;
+  }
+  .Ejercicio h1{
+    margin-bottom: 3rem;
+  }
+  .fila{
+    display: flex;
+    flex-direction: row;
+    margin-right: 3rem;
+    margin-left:  3rem;
+  }
+  .fila input{
+    margin-right: 0.5rem;
+    margin-left:  0.5rem;
+  }
+  .notapasa{
+    color: green;
+  }
+  .notalose{
+    color: red;
+  }
