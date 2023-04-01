@@ -63,11 +63,9 @@ function func5() {
     // Obtener el número ingresado por el usuario
     var numero = parseFloat(document.getElementById("input5").value);
     console.log(numero);
-    if(isNaN(numero)){
-        document.getElementById("resp5").innerHTML = "Debe ingresar números enteros positivos.";
-        document.getElementById("resp5").style.color = "red";
+
         
-    }else if(!Number.isInteger(numero)){
+    if(!Number.isInteger(numero)){
         document.getElementById("resp5").innerHTML = "Debe ingresar números enteros.";
         document.getElementById("resp5").style.color = "red";
     }else if(numero <= 0){
@@ -86,6 +84,15 @@ function func5() {
           }
     
   
+    
+  }
+  function func6() {
+    // Obtener el texto ingresado por el usuario y el texto a buscar
+    var inputText = document.getElementById("input6").value;
+    var searchText = document.getElementById("input6b").value;
+    var regex = new RegExp(searchText, "g");
+    var outputText =inputText.replace(regex, '<span class="notalose">'+searchText+'</span>');
+    document.getElementById("resp6").innerHTML = outputText;
     
   }
   
