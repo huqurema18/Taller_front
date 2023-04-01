@@ -96,3 +96,62 @@ function func5() {
     
   }
   
+  function func7(){
+    
+    var a = parseFloat(document.getElementById("input7").value);
+    var b = parseFloat(document.getElementById("input7b").value);
+
+    if (a >= 0 && b >= 0 && Number.isInteger(a) && Number.isInteger(b)) {
+      if (a % b === 0) {
+        console.log("El número " + a + " es divisible entre el número " + b);
+        document.getElementById("resp7").innerHTML = "El número " + a + " es divisible entre el número " + b;
+      } else {
+        console.log("El número " + a + " no es divisible entre el número " + b);
+        document.getElementById("resp7").innerHTML = "El número " + a + " no es divisible entre el número " + b;
+      }
+    } else {
+      console.log("Ingrese números enteros positivos.");
+      document.getElementById("resp7").innerHTML = "Ingrese números enteros positivos.";
+    }
+  }
+  function func8(){
+    var numeros = document.getElementById("input8").value;
+    
+    var numerosArray = numeros.replace(/ /g,"").split(",");
+    var result="";
+    for (var i = 0; i < numerosArray.length; i++) {
+      var numero = parseFloat(numerosArray[i]);
+      
+      if (numero%1===0) {
+        if (numero % 2 === 0) {
+          result += numero +'<span style="color: blue;"> es número par</span>';
+          result+="<br>";
+        } else {
+          result += numero +'<span style="color: green;"> es número impar</span>';
+          result+="<br>";
+        }
+      }else{
+        result +=numero +'<span style="color: red;"> no es numero entero</span>';
+        result+="<br>";
+        
+      }
+    }
+    document.getElementById("resp8").innerHTML = result; 
+  }
+
+  //animacion
+  $(document).ready(function() {
+    $('h1').hide().fadeIn(2000).animate({top: '50px'}, 1000);
+  });
+
+  $(document).ready(function() {
+    $('button.scroll-btn[href^="#"]').on('click', function(event) {
+      var target = $(this.getAttribute('href'));
+      if( target.length ) {
+        event.preventDefault();
+        $('html, body').stop().animate({
+          scrollTop: target.offset().top
+        }, 1000);
+      }
+    });
+  });
