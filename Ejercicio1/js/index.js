@@ -144,14 +144,16 @@ function func5() {
     $('h1').hide().fadeIn(2000).animate({top: '50px'}, 1000);
   });
 
+ 
+
   $(document).ready(function() {
-    $('button.scroll-btn[href^="#"]').on('click', function(event) {
-      var target = $(this.getAttribute('href'));
-      if( target.length ) {
-        event.preventDefault();
-        $('html, body').stop().animate({
-          scrollTop: target.offset().top
-        }, 1000);
-      }
+    // Al hacer click en un botón con la clase "btn-seccion"
+    $(".scroll-btn").on("click", function() {
+      // Obtenemos el número de sección a mostrar
+      var numSeccion = $(this).data("seccion");
+      // Ocultamos todas las secciones con la clase "Ejercicio"
+      $(".Ejercicio").hide();
+      // Mostramos la sección correspondiente al número seleccionado
+      $(".seccion" + numSeccion).show();
     });
   });
