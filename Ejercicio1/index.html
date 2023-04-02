@@ -13,11 +13,11 @@
 </head>
 
 <body>
-    <section class="Ejercicio" >
+    <header>
                   
         <h1 >Taller Multimedia</h1>
                
-    </section>
+    </header>
     <nav class="botones">
         <button class="button-35 scroll-btn" role="button" id="btneje1" href="#ej1" data-seccion="1">Ejercicio 1</button>
         <button class="button-35 scroll-btn" role="button" id="btneje2" href="#ej2" data-seccion="2">Ejercicio 2</button>
@@ -30,31 +30,32 @@
     </nav>
     <section class="Ejercicio seccion1" id="ej1">
         <h2>Ejercicio 1</h2>
+        <label for="">Escribe algo y te diré la cantidad de caracteres: </label>
         <input type="text" id="input1" name="input1">
-        <button type="submit" onclick="func1()">Enviar</button>
+        <button class="btn1" type="submit">Borrar</button>
         <label for="" id="resp1"></label>
     </section>
     <section class="Ejercicio seccion2" id="ej2">
         <h2>Ejercicio 2</h2>
-        <label for="">Escribe el dato: </label>
+        <label for="">Escribe el dato sobre el que identificaré si es texto o número: </label>
         <input type="text" id="input2" name="input2">
-        <button type="submit" onclick="func2()">Enviar</button>
+        <button type="submit" class="btn2">Enviar</button>
         <label for="" id="resp2"></label>
     </section>
     <section class="Ejercicio seccion3" id="ej3">
         <h2>Ejercicio 3</h2>
-        <label for="">Escribe tu nombre y años: </label>
+        <label for="">Escribe tu nombre y años y te diré si eres mayor de edad: </label>
         
         <div class="fila">
             <input type="text" id="input3" name="input3" placeholder="NOMBRE">
             <input type="text" id="input3b" name="input3b" placeholder="EDAD">
         </div>
-        <button type="submit" onclick="func3()">Enviar</button>
+        <button type="submit" class="btn3">Enviar</button>
         <label for="" id="resp3"></label>
     </section>
     <section class="Ejercicio seccion4" id="ej4">
         <h2>Ejercicio 4</h2>
-        <label for="">Escribe tu nombre y las notas: </label>
+        <label for="">Escribe tu nombre y las notas y te diré si pasas la materia: </label>
         <input type="text" id="input4" name="input4" placeholder="NOMBRE">
         <div class="fila">
             <input type="text" id="Materia" name="Materia" placeholder="Materia">
@@ -62,22 +63,22 @@
             <input type="text" id="nota2_4" name="Nota14" placeholder="Nota2">
             <input type="text" id="nota3_4" name="Nota14" placeholder="Nota3">
         </div>
-        <button type="submit" onclick="func4()">Enviar</button>
+        <button type="submit" class="btn4">Enviar</button>
         <label for="" id="resp4"></label>
     </section>
     <section class="Ejercicio seccion5" id="ej5">
         <h2>Ejercicio 5</h2>
-        <label for="">Escribe el número: </label>
+        <label for="">Escribe el número sobre el que identificaré si es par o impar: </label>
         <input type="text" id="input5" name="input5">
-        <button type="submit" onclick="func5()">Enviar</button>
+        <button type="submit" class="btn5">Enviar</button>
         <label for="" id="resp5"></label>
     </section>
     <section class="Ejercicio seccion6" id="ej6">
         <h2>Ejercicio 6</h2>
-        <label for="">Escribe el texto: </label>
-        <input type="text" id="input6b" name="input6b">
-        <textarea id="input6" rows="8"></textarea>
-        <button type="submit" onclick="func6()">Enviar</button>
+        <label for="">Escribe la palabra que quieres buscar, y luego el texto donde buscaremos la palabra: </label>
+        <input type="text" id="input6b" name="input6b" placeholder="PALABRA A BUSCAR">
+        <textarea id="input6" rows="8" placeholder="TEXTO DONDE BUSCAREMOS LA PALABRA"></textarea>
+        <button type="submit" class="btn6">Enviar</button>
         <div class="divres6">
             <label for="" id="resp6"></label>
         </div>
@@ -86,19 +87,19 @@
     </section>
     <section class="Ejercicio seccion7" id="ej7">
         <h2>Ejercicio 7</h2>
-        <label for="">Escribe dos números: </label>
+        <label for="">Escribe dos números y te diré si el número 1 es divisible por el número 2 </label>
         
         <div class="fila">
             <input type="text" id="input7" name="input7" placeholder="Numero 1">
             <input type="text" id="input7b" name="input7b" placeholder="Numero 2">
         </div>
-        <button type="submit" onclick="func7()">Enviar</button>
+        <button type="submit" class="btn7">Enviar</button>
         <label for="" id="resp7"></label>
     </section>
     <section class="Ejercicio seccion8" id="ej8">
         <h2>Ejercicio 8</h2>
         <form action="">
-            <label for="">Ingrese una lista de números separados por coma:  </label>
+            <label for="">Ingrese una lista de números separados por coma, y te diré cuales son números pares e impares  </label>
             <input type="text" id="input8" name="input8">
             <button type="button" onclick="func8()">Enviar</button>
         </form>

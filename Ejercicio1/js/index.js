@@ -1,25 +1,149 @@
 
+$(document).ready(function() {
+  $(".btn1").click(function(){
+    borrar();
+    func1();
 
+  });
+  $(".btn2").click(function(){
+    func2();
+  });
+  $(".btn3").click(function(){
+    func3();
+  });
+  $(".btn4").click(function(){
+    func4();
+  });
+  $(".btn5").click(function(){
+    func5();
+  });
+  $(".btn6").click(function(){
+    func6();
+  });
+  $(".btn7").click(function(){
+    func7();
+  });
 
+  
+  
 
+});
 function func1() {
-    let text=document.getElementById("input1").value;
-    let result=text.length; 
-    const resp=document.getElementById("resp1");
-    resp.innerHTML=`${result} caracteres`;
+  $("#input1").keyup(function(){
+    //let text=document.getElementById("input1").value;
+    //let result=text.length; 
+    let result=$("#input1").val().length;
+    //const resp=document.getElementById("resp1");
+    $("#resp1").html(`${result} caracteres`);
+    //resp.innerHTML=`${result} caracteres`;
+  });
+  
 
 }
 
-  function func2() {
-    const input = document.getElementById("input2");
-	const tipoDato = document.getElementById("resp2");
-    if (isNaN(input.value)) {
-        tipoDato.innerHTML = `texto`;
-    } else {
-        tipoDato.innerHTML = `número`;
+function borrar() {
+  $("#input1").val("");
+  let result = $("#input1").val().length;
+  $("#resp1").html(`${result} caracteres`);
+
+}
+function func2(){
+  if (isNaN($("#input2").val())) {
+    $("#resp2").html(`texto`);
+  } else {
+    $("#resp2").html(`número`);
+  }
+}
+function func3() {
+  // Verificar si la edad es mayor o igual a 18
+  if ($("#input3b").val() >= 18) {
+    $("#resp3").html("Hola "+ $("#input3").val() + " eres mayor de edad");
+  } else {
+    $("#resp3").html("Hola "+ $("#input3").val() + " eres menor de edad");
+  }
+}
+
+function func4() {
+var promedio = (parseFloat($("#nota1_4").val()) + parseFloat($("#nota2_4").val()) + parseFloat($("#nota3_4").val())) / 3;
+// Determinar si el usuario pasó o perdió la materia
+if (promedio >= 3.0) {
+  $("#resp4").html("Felicitaciones " + $("#input4").val() +", "+"<span class=\"notapasa\">su nota es " + promedio.toFixed(2) +"</span>"+ ",  Pasaste la materia " + $("#Materia").val() + ".")
+  } else {
+  $("#resp4").html("Lastimosamente " + $("#input4").val() +", "+"<span class=\"notalose\">su nota es " + promedio.toFixed(2) +"</span>"+ ",  Perdiste la materia " + $("#Materia").val() + ".");
+  }
+
+}
+
+function func5() {
+      let numero=parseFloat($("#input5").val());
+  if(numero<= 0){
+    $("#resp5").css({"color": "red"});
+    $("#resp5").html("Debe ingresar números positivos.");
+
+    if(!Number.isInteger(numero)){
+      $("#resp5").css({"color": "red"});
+      $("#resp5").html("Debe ingresar números enteros positivos.");
     }
+  }else if(!Number.isInteger(numero)){
+    $("#resp5").css({"color": "red"});
+    $("#resp5").html("Debe ingresar números enteros.");
+  }else if (numero % 2 == 0) {
+    $("#resp5").css({"color": "green"});
+    $("#resp5").html("El número " + numero + " es Par.");
+        } else {
+          $("#resp5").css({"color": "gray"});
+          $("#resp5").html("El número " + numero + " es Impar.");
+        } 
 }
 
+function func6() {
+  // Obtener el texto ingresado por el usuario y el texto a buscar
+  var regex = new RegExp($("#input6b").val(), "g");
+  var outputText =$("#input6").val().replace(regex, '<span class="notalose">'+$("#input6b").val()+'</span>');
+  $("#resp6").html(outputText);
+}
+
+function func7(){
+    
+  var a = parseFloat($("#input7").val());
+  var b = parseFloat($("#input7b").val());
+
+  if (a >= 0 && b >= 0 && Number.isInteger(a) && Number.isInteger(b)) {
+    if (a % b === 0) {
+      $("#resp7").html("El número " + a + " es divisible entre el número " + b);
+
+    } else {
+      $("#resp7").html("El número " + a + " no es divisible entre el número " + b);
+    }
+  } else {
+    $("#resp7").css({"color": "red"});
+    $("#resp7").html("Ingrese números enteros positivos.");
+  }
+}
+
+
+
+/*
+
+function borrar() {
+  document.getElementById("input1").value="";
+  let text=document.getElementById("input1").value;
+  let result=text.length; 
+  const resp=document.getElementById("resp1");
+  resp.innerHTML=`${result} caracteres`;
+  func1();
+}
+
+
+function func2() {
+  const input = document.getElementById("input2");
+	const tipoDato = document.getElementById("resp2");
+  if (isNaN(input.value)) {
+    tipoDato.innerHTML = `texto`;
+  } else {
+    tipoDato.innerHTML = `número`;
+  }
+}
 function func3() {
     // Obtener el valor del nombre y la edad ingresados por el usuario
   var nombre = document.getElementById("input3").value;
@@ -35,6 +159,7 @@ function func3() {
   }
 
 }
+
 function func4() {
     // Obtener los valores del nombre, materia y notas ingresados por el usuario
   var nombre = document.getElementById("input4").value;
@@ -59,33 +184,35 @@ function func4() {
   }
 
 }
+
 function func5() {
     // Obtener el número ingresado por el usuario
     var numero = parseFloat(document.getElementById("input5").value);
     console.log(numero);
 
         
-    if(!Number.isInteger(numero)){
+    if(numero <= 0){
+      document.getElementById("resp5").innerHTML = "Debe ingresar números positivos.";
+      document.getElementById("resp5").style.color = "red";
+      if(!Number.isInteger(numero)){
+          document.getElementById("resp5").innerHTML = "Debe ingresar números enteros positivos.";
+          document.getElementById("resp5").style.color = "red";
+      }
+    }else if(!Number.isInteger(numero)){
         document.getElementById("resp5").innerHTML = "Debe ingresar números enteros.";
         document.getElementById("resp5").style.color = "red";
-    }else if(numero <= 0){
-        document.getElementById("resp5").innerHTML = "Debe ingresar números positivos.";
-        document.getElementById("resp5").style.color = "red";
-        if(!Number.isInteger(numero)){
-            document.getElementById("resp5").innerHTML = "Debe ingresar números enteros positivos.";
-            document.getElementById("resp5").style.color = "red";
-        }
     }else if (numero % 2 == 0) {
             document.getElementById("resp5").innerHTML = "El número " + numero + " es Par.";
             document.getElementById("resp5").style.color = "green";
           } else {
             document.getElementById("resp5").innerHTML = "El número " + numero + " es Impar.";
-            document.getElementById("resp5").style.color = "red";
+            document.getElementById("resp5").style.color = "gray";
           }
     
   
     
-  }
+}
+
   function func6() {
     // Obtener el texto ingresado por el usuario y el texto a buscar
     var inputText = document.getElementById("input6").value;
@@ -95,7 +222,7 @@ function func5() {
     document.getElementById("resp6").innerHTML = outputText;
     
   }
-  
+
   function func7(){
     
     var a = parseFloat(document.getElementById("input7").value);
@@ -114,6 +241,19 @@ function func5() {
       document.getElementById("resp7").innerHTML = "Ingrese números enteros positivos.";
     }
   }
+}*/
+
+  
+document.addEventListener('keydown', (event) => {
+  func1();
+}, false);
+
+
+
+
+  
+  
+  
   function func8(){
     var numeros = document.getElementById("input8").value;
     
@@ -140,20 +280,18 @@ function func5() {
   }
 
   //animacion
+
   $(document).ready(function() {
+    $(".Ejercicio").fadeOut();
     $('h1').hide().fadeIn(2000).animate({top: '50px'}, 1000);
-  });
-
- 
-
-  $(document).ready(function() {
     // Al hacer click en un botón con la clase "btn-seccion"
     $(".scroll-btn").on("click", function() {
       // Obtenemos el número de sección a mostrar
       var numSeccion = $(this).data("seccion");
       // Ocultamos todas las secciones con la clase "Ejercicio"
       $(".Ejercicio").hide();
+      $("header").fadeOut(500).animate({top: '50px'}, 1000);
       // Mostramos la sección correspondiente al número seleccionado
-      $(".seccion" + numSeccion).show();
+      $(".seccion" + numSeccion).fadeIn();
     });
   });
