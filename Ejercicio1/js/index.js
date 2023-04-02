@@ -3,7 +3,6 @@ $(document).ready(function() {
   $(".btn1").click(function(){
     borrar();
     func1();
-
   });
   $(".btn2").click(function(){
     func2();
@@ -22,6 +21,9 @@ $(document).ready(function() {
   });
   $(".btn7").click(function(){
     func7();
+  });
+  $(".btn8").click(function(){
+    func8();
   });
 
   
@@ -116,9 +118,67 @@ function func7(){
       $("#resp7").html("El número " + a + " no es divisible entre el número " + b);
     }
   } else {
-    $("#resp7").css({"color": "red"});
-    $("#resp7").html("Ingrese números enteros positivos.");
+    if(!Number.isInteger(a) && !Number.isInteger(b)){
+      $("#resp7").css({"color": "red"});
+      $("#resp7").html("Los número "+a+" y "+b+" no son enteros");
+    }else {
+      if(!Number.isInteger(a)){
+        $("#resp7").css({"color": "red"});
+        $("#resp7").html("El número "+b+" no es entero ");
+  
+      }else{
+        $("#resp7").css({"color": "red"});
+        $("#resp7").html("El número "+a+" no es entero ");
+  
+      }
+
+    }
+    
+    
+    
+    if(a >= 0 && b >= 0){
+      $("#resp7").css({"color": "red"});
+      $("#resp7").html("Ingrese números enteros positivos.");
+    }else{
+      if (a>=0) {
+        $("#resp7").css({"color": "red"});
+        $("#resp7").html("El número "+b+" no es positivo");
+      }else{
+        if(b>=0){
+          $("#resp7").css({"color": "red"});
+          $("#resp7").html("El número "+a+" no es positivo");
+        }else{
+          $("#resp7").css({"color": "red"});
+          $("#resp7").html("Los número "+a+" y "+b+" no son enteros positivos");
+        }
+        
+      }
+    }
   }
+}
+
+function func8(){  
+  var numerosArray = $("#input8").val().replace(/ /g,"").split(",");
+  var result="";
+  for (var i = 0; i < numerosArray.length; i++) {
+    if(isNaN(numerosArray[i])){
+      var numero =numerosArray[i]+"";
+    }else{var numero = parseFloat(numerosArray[i]);}
+    
+    if (numero%1===0) {
+      if (numero % 2 === 0) {
+        result += numero +'<span style="color: blue;"> es número par</span>';
+        result+="<br>";
+      } else {
+        result += numero +'<span style="color: green;"> es número impar</span>';
+        result+="<br>";
+      }
+    }else{
+      result +=numero +'<span style="color: red;"> no es numero entero</span>';
+      result+="<br>";      
+    }
+  }
+  $("#resp8").html(result);
 }
 
 
@@ -241,19 +301,7 @@ function func5() {
       document.getElementById("resp7").innerHTML = "Ingrese números enteros positivos.";
     }
   }
-}*/
 
-  
-document.addEventListener('keydown', (event) => {
-  func1();
-}, false);
-
-
-
-
-  
-  
-  
   function func8(){
     var numeros = document.getElementById("input8").value;
     
@@ -278,14 +326,28 @@ document.addEventListener('keydown', (event) => {
     }
     document.getElementById("resp8").innerHTML = result; 
   }
+}*/
+
+  
+document.addEventListener('keydown', (event) => {
+  func1();
+}, false);
+
+
+
+
+  
+  
+  
+  
 
   //animacion
 
   $(document).ready(function() {
     $(".Ejercicio").fadeOut();
     $('h1').hide().fadeIn(2000).animate({top: '50px'}, 1000);
-    // Al hacer click en un botón con la clase "btn-seccion"
-    $(".scroll-btn").on("click", function() {
+    // Al hacer click en un botón con la clase ".scroll-btn"
+    $(".scroll-btn").click(function() {
       // Obtenemos el número de sección a mostrar
       var numSeccion = $(this).data("seccion");
       // Ocultamos todas las secciones con la clase "Ejercicio"
